@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import axios from 'axios'
 import { Movies } from '../../components'
 import {Hero} from '../../components'
+import ENDPOINTS from '../../utils/constants/endpoints'
 
 
 const PageTitle=styled.h2`
@@ -19,11 +20,7 @@ const Popular = () => {
 
   useEffect(() => {
       async function fetchPopularMovies(){
-        const API_KEY=import.meta.env.VITE_API_KEY;
-        const URL=`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`;
-
-        const response=await axios.get(URL);
-        // console.log(response.data.results);
+        const response=await axios.get(ENDPOINTS.POPULAR);
 
         setMovies(response.data.results);
       }
@@ -35,7 +32,7 @@ const Popular = () => {
     <div>
       <Hero />
       <PageTitle>Popular Movies</PageTitle>
-      <Movies movies={movies} />
+      <Movies movies={movies} title="Popular Movies"/>
     </div>
   )
 }

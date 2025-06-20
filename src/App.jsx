@@ -4,7 +4,8 @@ import {
   Create,
   NowPlaying,
   Popular,
-  TopRated
+  TopRated,
+  Detail
 } from './pages/movies';
 import Layout from './Layout/Layout';
 import Home from './pages/Home';
@@ -22,6 +23,7 @@ function App() {
             <Route path='/movie/popular' element={<Popular />}></Route>
             <Route path='/movie/now_playing' element={<NowPlaying />}></Route>
             <Route path='/movie/top_rated' element={<TopRated />}></Route>
+            <Route path='/movie/:id' element={<Detail/>}></Route>
           </Routes>
         </Layout>
       </ThemeProvider>

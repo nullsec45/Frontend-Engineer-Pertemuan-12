@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './Movies.module.css';
+import { Link } from 'react-router';
 
-const Movies = ({ movies }) => (
+const Movies = ({ movies, title }) => (
   <div className={styles.container}>
     <section className={styles.movies}>
-      {/* <h2 className={styles.movies__title}>Latest Movies</h2> */}
+      <h2 className={styles.movies__title}>{title}</h2>
       <div className={styles.movie__grid}>
         {movies && movies.length > 0 ? (
           movies.map((movie) => (
@@ -20,7 +21,9 @@ const Movies = ({ movies }) => (
                 </span>
               </div>
               <div className={styles.movie__info}>
+                <Link to={`/movie/${movie.id}`} className={styles.movie__link}>
                 <h3 className={styles.movie__title}>{movie.title}</h3>
+                </Link>x
                 <p className={styles.movie__date}>{movie.release_date}</p>
                 <p className={styles.movie__genre}>
                   {Array.isArray(movie.genre_ids)

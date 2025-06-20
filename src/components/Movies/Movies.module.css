@@ -8,6 +8,10 @@
   text-align: center;
 }
 
+.movies__title{
+  margin-bottom: 30px;
+}
+
 
 
 .movie__grid {
